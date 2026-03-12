@@ -22,6 +22,30 @@ Override image name/version: `make build IMAGE_NAME=foo VERSION=1.2`
 - **Makefile** — wraps `docker buildx`; `setup-buildx` creates a named builder (`opcilloscope-builder`) on first use; `build` requires `--push` because multi-platform images cannot be loaded locally
 - **TARGETARCH mapping** — Docker's `amd64` is mapped to .NET RID `linux-x64`; `arm64` stays `linux-arm64`
 
+## Commits
+
+Follow [Conventional Commits](https://gist.github.com/qoomon/5dfcdf8eec66a051ecd85625518cfd13).
+
+Format: `<type>(<optional scope>): <description>`
+
+| Type | When to use |
+|------|-------------|
+| `feat` | Adding or adjusting a feature |
+| `fix` | Resolving a bug |
+| `refactor` | Code change that neither fixes a bug nor adds a feature |
+| `perf` | Performance improvement |
+| `style` | Formatting, whitespace (no behavior change) |
+| `test` | Adding or fixing tests |
+| `docs` | Documentation only |
+| `build` | Build system, dependencies |
+| `ops` | Infrastructure, deployment |
+| `chore` | Maintenance, `.gitignore`, initial commit |
+
+Rules:
+- Description in imperative present tense: `add` not `added` / `adds`
+- No capital first letter, no period at the end
+- Breaking changes: append `!` before the colon (`feat!: ...`) and add a `BREAKING CHANGE:` footer
+
 ## Key notes
 
 - The container is an interactive TUI; always run with `-it`
